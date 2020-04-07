@@ -1,6 +1,6 @@
 <template name="task">
   <!-- isChecked is the db field -->
-  <li class="{{#if isChecked}}checked{{/if}}">
+  <li class="{{#if isChecked}}checked{{/if}} {{#if private}}private{{/if}}">
     <button class="delete">&times;</button>
     <input
       id="{{_id}}"
@@ -8,6 +8,13 @@
       checked="{{isChecked}}"
       class="toggle-checked"
     />
-    <label for="{{_id}}"><span class="text">{{text}}</span> </label>
+    <label for="{{_id}}"
+      ><span class="text"><strong>{{username}}</strong> - {{text}}</span>
+    </label>
+    {{#if isOwner}}
+    <button class="toggle-private">
+      {{#if private}} Private {{else}} Public {{/if}}
+    </button>
+    {{/if}}
   </li>
 </template>
