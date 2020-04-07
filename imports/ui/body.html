@@ -2,14 +2,20 @@
   <div class="container">
     <header>
       <h1>Todo List</h1>
+
+      <form class="new-task">
+        <input type="text" name="text" placeholder="Type to add new tasks" />
+      </form>
     </header>
 
+    <!-- tasks is the helper defined in body.js -->
     <ul>
       {{#each tasks}} {{> task}} {{/each}}
     </ul>
   </div>
 </body>
 
-<template name="task">
+<!-- task is the previous template we used above by invoking {{>task}}. It is replaced by a new template created in the task.html component -->
+<!-- <template name="task">
   <li>{{text}}</li>
-</template>
+</template> -->

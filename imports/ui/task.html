@@ -1,0 +1,13 @@
+<template name="task">
+  <!-- isChecked is the db field -->
+  <li class="{{#if isChecked}}checked{{/if}}">
+    <button class="delete">&times;</button>
+    <input
+      id="{{_id}}"
+      type="checkbox"
+      checked="{{isChecked}}"
+      class="toggle-checked"
+    />
+    <label for="{{_id}}"><span class="text">{{text}}</span> </label>
+  </li>
+</template>
