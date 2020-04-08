@@ -39,6 +39,24 @@ h1 {
   margin-right: 1em;
 }
 
+.button {
+  background-color: white;
+  color: black;
+  border: 2px solid #008cba;
+  padding: 2px 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  transition-duration: 0.2s;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+:focus {
+  outline: none;
+}
+
 form {
   margin-top: 10px;
   margin-bottom: -10px;
