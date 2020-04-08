@@ -23,3 +23,5 @@ msavin:mongol
 reactive-dict
 accounts-ui
 accounts-password
+meteortesting:mocha
+practicalmeteor:chai
