@@ -9,9 +9,11 @@ import "./body.html";
 // Importing task.js also imports task.html to body.html?!
 import "./task.js";
 
-// initialize the state in a ReactiveDict
+// do stuff once file loads (onCreated)
 Template.body.onCreated(function () {
-  Template.instance().state = new ReactiveDict();
+  // initialize the state in a ReactiveDict
+  this.state = new ReactiveDict();
+  // get tasks (subscribe to tasks.js in the api)
   Meteor.subscribe("tasks");
 });
 
