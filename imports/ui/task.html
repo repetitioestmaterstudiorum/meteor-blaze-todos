@@ -2,14 +2,13 @@
   <!-- isChecked is the db field -->
   <li class="{{#if isChecked}}checked{{/if}} {{#if private}}private{{/if}}">
     <button class="delete">&times;</button>
-    <input
-      id="{{_id}}"
-      type="checkbox"
-      checked="{{isChecked}}"
-      class="toggle-checked"
-    />
-    <label for="{{_id}}"
-      ><span class="text"><strong>{{username}}</strong> - {{text}}</span>
+
+    <label
+      ><input
+        type="checkbox"
+        checked="{{isChecked}}"
+        class="toggle-checked"
+      /><span class="text"><strong>{{username}}</strong> - {{text}}</span>
     </label>
     {{#if isOwner}}
     <button class="toggle-private button">
