@@ -44,12 +44,6 @@ Template.body.events({
     // Get value from form element
     const text = event.target.text.value;
     // Insert a task into the collection
-    // Tasks.insert({
-    //   text,
-    //   createdAt: new Date(), // current time
-    //   owner: Meteor.userId(), // add current user's ID and username
-    //   username: Meteor.user().username,
-    // });
     Meteor.call("tasks.insert", text);
     // Clear form
     event.target.text.value = "";

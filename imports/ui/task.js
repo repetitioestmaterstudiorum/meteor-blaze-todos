@@ -1,5 +1,6 @@
 import { Meteor } from "meteor/meteor";
 import { Template } from "meteor/templating";
+import swal from "sweetalert";
 
 import "./task.html";
 
@@ -11,17 +12,24 @@ Template.task.helpers({
 
 Template.task.events({
   "click .toggle-checked"() {
-    // Set the checked property to the opposite of its current value
-    // Tasks.update(this._id, {
-    //   $set: { isChecked: !this.isChecked },
-    // });
     Meteor.call("tasks.setChecked", this._id, !this.isChecked);
   },
   "click .delete"() {
-    // Tasks.remove(this._id);
-    Meteor.call("tasks.remove", this._id, (error) => {
-      if (error) {
-        alert("You can only delete tasks you created.");
+    swal({
+      text: "Sure you want to delete this task?",
+      icon: "warning",
+      buttons: ["Actually, no", "Yes!"],
+    }).then((yes) => {
+      if (yes) {
+        Meteor.call("tasks.remove", this._id, (error) => {
+          if (error) {
+            swal({
+              text: `${error}`,
+              icon: "error",
+              button: "Alrighty",
+            });
+          }
+        });
       }
     });
   },
