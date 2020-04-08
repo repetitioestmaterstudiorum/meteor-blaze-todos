@@ -19,7 +19,11 @@ Template.task.events({
   },
   "click .delete"() {
     // Tasks.remove(this._id);
-    Meteor.call("tasks.remove", this._id);
+    Meteor.call("tasks.remove", this._id, (error) => {
+      if (error) {
+        alert("You can only delete tasks you created.");
+      }
+    });
   },
   "click .toggle-private"() {
     Meteor.call("tasks.setPrivate", this._id, !this.private);
