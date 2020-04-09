@@ -8,6 +8,7 @@ import "./body.html";
 // "The body template uses the task template, so we need to import it as well:" (https://www.meteor.com/tutorials/blaze/update-and-remove) -> should be: the body component uses the task component...
 // Importing task.js also imports task.html to body.html?!
 import "./task.js";
+import "./counter.js";
 
 // do stuff once file loads (onCreated)
 Template.body.onCreated(function () {
